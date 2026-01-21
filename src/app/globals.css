@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 폰트 임포트 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* 커스텀 스크롤바 */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full hover:bg-gray-500;
+  }
+
+  /* 버튼 스타일 */
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-medium 
+           hover:bg-primary-700 active:scale-95 transition-all duration-200
+           shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-medium 
+           hover:bg-gray-300 active:scale-95 transition-all duration-200;
+  }
+
+  /* 카드 스타일 */
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl 
+           transition-all duration-300 p-6;
+  }
+
+  /* 시대별 배경 그라디언트 */
+  .era-gradient-prehistoric {
+    @apply bg-gradient-to-br from-amber-100 to-orange-200;
+  }
+
+  .era-gradient-ancient {
+    @apply bg-gradient-to-br from-red-100 to-pink-200;
+  }
+
+  .era-gradient-unified {
+    @apply bg-gradient-to-br from-yellow-100 to-amber-200;
+  }
+
+  .era-gradient-goryeo {
+    @apply bg-gradient-to-br from-blue-100 to-indigo-200;
+  }
+
+  .era-gradient-joseon {
+    @apply bg-gradient-to-br from-green-100 to-emerald-200;
+  }
+
+  .era-gradient-modern {
+    @apply bg-gradient-to-br from-purple-100 to-violet-200;
+  }
+
+  .era-gradient-contemporary {
+    @apply bg-gradient-to-br from-orange-100 to-red-200;
+  }
+
+  /* 애니메이션 효과 */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* 반짝이는 효과 */
+  .animate-shimmer {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.5) 50%, 
+      transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* 펄스 효과 */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.8);
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
